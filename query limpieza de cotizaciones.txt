@@ -1,0 +1,3 @@
+delete from cotizaciones;
+delete from item_orden_cotizaciones;
+update empresa set contador_cotizaciones = '0';

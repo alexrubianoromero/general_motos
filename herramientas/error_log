@@ -1,0 +1,4 @@
+[02-Mar-2019 01:53:28 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/fpgzxamv/public_html/sistema/valotablapc.php on line 81
+[02-Mar-2019 01:53:32 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/fpgzxamv/public_html/sistema/valotablapc.php on line 81
+[09-Nov-2019 14:02:27 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/fpgzxamv/public_html/sistema/valotablapc.php on line 81
+[06-Sep-2023 17:16:03 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/fpgzxamv/public_html/sistema/valotablapc.php on line 81
