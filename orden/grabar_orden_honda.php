@@ -15,6 +15,7 @@ echo '</pre>';
 
 
 include('../valotablapc.php');
+include('../funciones.php');
 
 
 
@@ -28,8 +29,17 @@ if ($_POST['herramienta']== 'undefined'){$_POST['herramienta'] = 0;}
 
 
 
+///antes de esto se debe buscar el contador actual de ordenes ya no sera el que viene de la pantalla anterior 
+$sql = "select contaor from empresa where id_empresa = '40' "; 
+// die($sql); 
+$consultaNoOrdenActual = mysql_query($sql,$conexion);
+$arrNoActual = get_table_assoc($consultaNoOrdenActual);
 
+$numeroActual = $arrNoActual[0]['contaor']; 
 
+$siguienteNumeroOrden  = $numeroActual+1; 
+// die('Siguiente '.$siguienteNumeroOrden);
+$_POST['orden_numero']= $siguienteNumeroOrden; 
 //aqui se crea el registro de la orden 
 
 $sql_grabar_orden = "insert into $tabla14 (orden,placa,sigla,fecha,observaciones,radio,antena,repuesto,herramienta,otros,
@@ -89,6 +99,8 @@ values (
 //esto para evitar confucion entre un numero de orden normal y un numero de orden de venta que se crea con el numero de factura
 
 //echo '<br>'.$sql_grabar_orden;
+
+//aqui se debe buscar el contador actual de ordenes
 
 
 
@@ -355,7 +367,10 @@ $cuerpo_correo="crecion de orden";
 //////////////////////////////////////////////////////////////////	
 /////////////////enviar el correo 
 //mail($_REQUEST['email'],'MOTORCYCLE ROOM',$body,$headers); 
-include('enviar_correo.php');
+// die('placa'.$_REQUEST['placa']); 
+$_REQUEST['email'] =  traerEmailDuenoConPlaca($_REQUEST['placa'],$conexion);
+// die('correo1234 '.$_REQUEST['email']); 
+include('enviar_correo.phpmailer.php');
 
 
 

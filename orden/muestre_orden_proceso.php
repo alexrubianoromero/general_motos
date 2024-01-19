@@ -27,7 +27,7 @@ o.mecanico,c.propietario
 inner join $tabla4 c on (c.placa = o.placa)
  where o.id_empresa = '".$_SESSION['id_empresa']."' 
  and o.tipo_orden < '2' and o.anulado = '0'  
-and estado = '0'
+and estado in ('0','1')
  order by o.id desc ";
 //echo '<br>'.$sql_muestre_ordenes;
 //inner join $tabla3 cli on (cli.idcliente = c.propietario)
@@ -76,6 +76,7 @@ echo '<table border= "1">';
 	if($_SESSION['id_empresa'] == '40' )
 	
 	     {echo '<td><h3>Vista Impresion</h3></td>'; }
+	echo '<td>PDF</td>';	 
 	
 	echo '<tr>';
 		while($ordenes = mysql_fetch_array($consulta_ordenes))
@@ -114,6 +115,9 @@ echo '<table border= "1">';
 					echo '<a href="orden_imprimir_honda_cero.php?idorden='.$ordenes['0'].'"  target = "_blank">Imprimir_Orden</a>';
 					echo '</h3></td>'; 
 				}
+				echo '<td>';
+				echo '<a href="./pdf/ordenPdf.php?idorden='.$ordenes['0'].'"  target = "_blank">PDF</a>';
+				echo '</td>';
 				echo '<tr>';
 			}
 echo '<table border= "1">';

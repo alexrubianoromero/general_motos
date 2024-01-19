@@ -1,7 +1,13 @@
 <?php
-
 session_start();
-
+$raiz = dirname(dirname(__file__));
+require_once($raiz.'/clientes/model/ClienteModel.php');
+require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
+require_once($raiz.'/vehiculos/model/CarroModel.php');
+$clienteModel = new ClienteModel(); 
+$ordenes = new OrdenesModelo();
+$carros = new CarroModel();
+// die($raiz); 
 ?>
 
 
@@ -85,7 +91,7 @@ $consulta_empresa = mysql_query($sql_empresa,$conexion);
 
 $datos_empresa = mysql_fetch_assoc($consulta_empresa);
 
-$ruta_imagen = '../logos/'.$datos_empresa['ruta_imagen'];
+$ruta_imagen = '../imagenes/honda_orden/hondayhero.jpg';
 
 if($datos_empresa['tipo_taller'] == '1') // OSEA SI ES TALLER DE VEHICULOS
 
@@ -180,7 +186,14 @@ else
 
  $datos = get_table_assoc($datos); 
 
-
+ $infoOrden = $ordenes->traerDatosOrdenIdNew($_REQUEST['idorden']);	
+ $infoCarro = $carros->busquePlacaNueva123($infoOrden['placa']);
+ $infoCliente = $clienteModel->traerClienteId($infoCarro['datos']['propietario']); 
+//  echo '<pre>';
+// print_r($infoCliente);
+// echo '</pre>';
+// die();
+ 
 
 //echo '<br>mecanico'.$datos[0]['mecanico'];
 
@@ -262,7 +275,7 @@ include('../colocar_links2.php');
 
       <tr>
 
-        <td colspan="2" rowspan="4"><img src="<?php  echo $ruta_imagen    ?>" width="318" height="104"></td>
+        <td colspan="2" rowspan="4"><img src="<?php  echo $ruta_imagen    ?>" width="440" ></td>
 
         <td colspan="2"><h3>ORDEN DE TRABAJO HONDA</h3></td>
 
@@ -330,7 +343,7 @@ include('../colocar_links2.php');
 
         <td>NOMBRE</td>
 
-        <td colspan="2"><input name="nombre"  id = "nombre" type="text"  value = "<?php echo $datos[0]['nombre']; ?> "></td>
+        <td colspan="2"><input name="nombre"  id = "nombre" type="text"  value = "<?php echo $infoCliente['nombre']; ?> "></td>
 
         <td>LINEA</td>
 
@@ -343,8 +356,8 @@ include('../colocar_links2.php');
         <td>CC/NIT</td>
 
         <td colspan="2">
-		<input name="idcliente" type="hidden"  value = "<?php echo $datos[0]['idcliente']; ?> ">
-		<input name="identificacion" type="text"  value = "<?php echo $datos[0]['identi']; ?> ">
+		<input name="idcliente" type="hidden"  value = "<?php echo $infoCliente['idcliente'];?> ">
+		<input name="identificacion" type="text"  value = "<?php echo $infoCliente['identi']; ?> ">
 	</td>
 
         <td>MODELO</td>
@@ -357,7 +370,7 @@ include('../colocar_links2.php');
 
         <td>DIRECCION</td>
 
-        <td colspan="2"><input name="direccion" type="text" size="50" value = "<? echo $datos[0]['direccion']  ?>"  ></td>
+        <td colspan="2"><input name="direccion" type="text" size="50" value = "<? echo $infoCliente['direccion']; ?>"  ></td>
 
         <td>PLACA</td>
 
@@ -369,7 +382,7 @@ include('../colocar_links2.php');
 
         <td>TELEFONO</td>
 
-        <td colspan="2"><input name="telefono" type="text" size="40" value = "<? echo $datos[0]['telefono']  ?>"></td>
+        <td colspan="2"><input name="telefono" type="text" size="40" value = "<? echo $infoCliente['telefono'];  ?>"></td>
 
         <td>COLOR</td>
 
@@ -377,7 +390,7 @@ include('../colocar_links2.php');
 
       </tr>
 
-	   <tr><td>EMAIL</td><td width="214"><input name="email" type="text" size="40" value = "<? echo $datos[0]['email']  ?>"></td>
+	   <tr><td>EMAIL</td><td width="214"><input name="email" type="text" size="40" value = "<? echo $infoCliente['email'];  ?>"></td>
 
 	   <td width="40">&nbsp;</td>
 

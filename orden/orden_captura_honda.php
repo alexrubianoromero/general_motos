@@ -56,7 +56,7 @@ echo '</pre>';
 */
 
 
-echo '<br>numero de items 123<br>'.$filas_nombres_items;
+// echo '<br>numero de items 123<br>'.$filas_nombres_items;
 $fechapan =  time();
 include('../colocar_links2.php');
 ?>
@@ -68,7 +68,9 @@ include('../colocar_links2.php');
       <tr>
         <td colspan="5" rowspan="4"></td>
         <td colspan="2"><h3>ORDEN DE TRABAJO</h3></td>
-        <td><input name="orden_numero" id = "orden_numero" type="text" size="20" value = "<? echo $ordenpan  ?>"  ></td>
+        <td>
+			<!-- <input name="orden_numero" id = "orden_numero" type="text" size="20" value = "<? //echo $ordenpan  ?>"  > -->
+		</td>
       </tr>
       <tr>
         <td colspan="2"><div align="center">Nit. <?php  echo $datos_empresa['identi'] ?> </div></td>
@@ -86,7 +88,7 @@ include('../colocar_links2.php');
         <td width="20%">FECHA INGRESO </td>
         <td><input size=10 name=fecha id = "fecha"  value= <? echo date ( "Y/m/j" , $fechapan );?>></td>
         <td>FECHA PROMETIDA AAAA-MM-DD </td>
-        <td ><input name="fecha_entrega" type="text" class="fila_llenar" ></td>
+        <td ><input name="fecha_entrega" type="date" class="fila_llenar" ></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td width="172">MARCA</td>

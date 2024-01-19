@@ -13,7 +13,7 @@ inner join $tabla3 as cli on (cli.idcliente = car.propietario)
 inner join $tabla14 as o  on (o.placa = car.placa)
 inner join $tabla10 as e on  (e.id_empresa = o.id_empresa) 
  where o.id = '".$_REQUEST['idorden']."'   and   o.id_empresa = '".$_SESSION['id_empresa']."'   ";
- //echo '<br>'.$sql_placas.'<br>';
+//  die ('<br>'.$sql_placas.'<br>');
 $datos = mysql_query($sql_placas,$conexion);
 $filas = mysql_num_rows($datos); 
 $datos_orden = mysql_fetch_assoc($datos);
@@ -69,9 +69,8 @@ else {
     <td width="40%" align = "center"><?php 
 		echo $datos_orden['razon_social'].'<BR>NIT. '.$datos_orden['identi'];	 
   	?></td>
-    <td width="4%"><img src="../imagenes/honda_orden/logo_honda.jpg" width="47" height="46"></td>
-    <td width="11%"><img src="../imagenes/honda_orden/yamaha.jpg" width="95" height="16"></td>
-    <td width="9%"><img src="../imagenes/honda_orden/zuzuki_logo.jpg" width="82" height="32"></td>
+    <td width="4%" colspan="3"><img src="../imagenes/honda_orden/hondayhero.jpg" width="350px"></td>
+
     <td width="35%" align="center"><?php  echo ' <h16><strong>ORDEN DE ENTRADA</strong></h16><BR> 
 
 <h15><strong>CENTRO DE SERVICIO AUTORIZADO  HONDA</strong></h15>'
@@ -233,7 +232,10 @@ echo '<tr><td colspan="3"></td><td><strong>SUBTOTAL Menos Abono</strong></td><td
 <table width = "<?php echo $ancho_tabla; ?>" border="0">
   <tr>
    <td align = "center"><?php echo $datos_orden['direccion_empresa'].'-'.$datos_orden['telefonos_empresa'].'-'. $datos_orden['email_empresa']  ?> </td>
-  </tr>
+   </tr>
+  <tr>
+	<td align = "center">Jefe de Taller Harrison Mosquera R.   Tel: 311 849 62 94</td>
+   </tr>
 </table>
 
 </h80>

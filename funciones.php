@@ -339,4 +339,17 @@ function suma_items_local($orden,$tabla,$conexion,$id_empresa)
 			 return $subtotal; 
 		}
 //////////////////////
+
+function traerEmailDuenoConPlaca($placa,$conexion)
+{
+	$sql = "select cli.email as email from carros c 
+			inner join cliente0 cli on (cli.idcliente = c.propietario) 
+			where c.placa = '".$placa."'
+			";
+			// die($sql ); 
+	$consulta = mysql_query($sql, $conexion ); 
+	$arrEmail = mysql_fetch_assoc($consulta); 
+	$email = $arrEmail['email']; 
+	return $email;  
+}
 ?>

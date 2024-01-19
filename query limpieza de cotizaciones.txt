@@ -1,3 +1,19 @@
 delete from cotizaciones;
 delete from item_orden_cotizaciones;
 update empresa set contador_cotizaciones = '0';
+
+la consulta que trae la infor de la orden esta trayendo mal el numero de cedula del dueño
+
+select cli.nombre as nombrecli,cli.identi as clidenti,cli.direccion,cli.telefono,
+car.placa,car.marca,car.modelo,car.color,car.tipo,car.chasis, o.fecha,o.observaciones,o.radio,o.antena,o.repuesto,
+o.herramienta,o.otros,o.iva as iva ,o.orden,o.kilometraje,o.mecanico,o.id, e.identi,e.telefonos as telefonos_empresa,
+e.direccion as direccion_empresa,o.kilometraje_cambio,e.tipo_taller,cli.email,e.condiciones_orden, o.fecha_entrega, 
+o.fecha_salida , e.email_empresa,e.razon_social,o.abono 
+from carros as car 
+inner join cliente0 as cli on (cli.idcliente = car.propietario) 
+inner join ordenes as o on (o.placa = car.placa) 
+inner join empresa as e on (e.id_empresa = o.id_empresa) 
+where o.id = '23179' and o.id_empresa = '40';
+
+al revisar en cuentro que en la base de datos quedo creado el cliente con el nit de general motos 
+osea en en la creacion de la moto que quedo mal 

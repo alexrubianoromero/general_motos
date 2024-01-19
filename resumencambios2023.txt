@@ -1,0 +1,50 @@
+
+*en ordenes en proceso que se reflejen las ordenes que estan listas tambien
+
+revisar lo de los datos del cliente que dalgan en la orden , al parecer esta mostrando en la info del taller 
+
+revisar que no cree varias veves la misma orden 
+
+
+Tener encuenta :
+El archivo conexion/Conexion.php debe estar cxonfigurado para produccion porque la base de datos es diferente 
+Yo cree un controlador de vehiculos solo para general motos
+
+
+cambios que se van realizando 
+
+se creo un correo 
+colocar el nombre jefe de taller en las ordenes 
+cambio el campo de fecha prometida en la orden a date 
+revisar que envie el correo porque eso cambio
+revisar porque sale el nit de general motos en algunas ordenes
+realizar una mejora en la forma como se toma la informacion del cliente y se crea la orden 
+para que no se pierda informcaion del cliente como la cedula 
+en la parte de nueva orden debe haber un control que permita establecer si hay algo mal con la cedula 
+o que no sea  la  de general motos 
+verificar cual es el nit de general  motos 
+830099461
+creo la placa ccc123
+colocar un filtro de busqueda para encontrar la persona en la creacion de la placa 
+deberia cambiar la funciopnalidad del boton consultar y que si no existe la placa pues que pregunte los datos 
+si ya esxiste pues que muestre los datos del dueño para verificar la cedula para que sea verificada la informacion
+crear orden de trabajo nueva esta solo en pruebas en produccion solo esta una crear onde de trabajo 
+
+el link de creacion de la orden 
+https://generalmotosltda.com/sistema_pruebas/orden/orden_captura_honda.php?placa123=aaa222
+
+falta poner control en la placa cuando se esta creando que muestre si la placa existe y oculte el boton de crear
+falta colocar control tambien en la identidad del cliente y no lo deje crear y oculte el boton 
+falta controlar que no se pueda grabar la misma placa mas de una vez 
+y la identidad mas de una vez cuando se dice grabar 
+
+Agrandar un poco la letra de placa 
+
+verificar que no se pueda grabar la placa dos veces ni la cedula de una persona dos veces
+colocar boton para poder cambiar el dueño de una moto 
+crear la forma para actualizar los datos de un cliente para una orden ya creada 
+ 
+ despues revisar lo que hice para traer el correo en grabar orden  y las nuevas funciones de enviar correo 
+ revisar la forma como se estan creando las ordenes solo debe crear info en la base de datos cuando ya esten los datos de la orden 
+
+ 

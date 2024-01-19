@@ -19,12 +19,13 @@ session_start();
 		<nav>
 		<ul class="menu">
 	
-		 <li><a href="muestreplacas2_honda.php" class="menu">CREAR ORDEN DE TRABAJO HONDA</a></li>
+		 <!-- <li><a href="muestreplacas2_honda.php" class="menu">CREAR ORDEN DE TRABAJO HONDA</a></li> -->
+		 <li><a href="crearOrdenNueva.php" class="menu">CREAR ORDEN DE TRABAJO HONDA</a></li>
 		  <li><a href="muestre_orden.php" class="menu">CONSULTAR ORDENES</a></li>
 		  <li><a href="muestre_orden_proceso.php" class="menu">CONSULTAR ORDENES EN PROCESO (NUEVA)</a></li>
-		  <li><a href="muestre_orden_nueva.php" class="menu">CONSULTAR ORDENES NUEVA</a></li>
-		   <li><a href="../consultas/pregunte_placa.php" class="menu">CONSULTAR ORDENES POR PLACA </a></li>
-		     <li><a href="pregunte_placa_anular.php" class="menu">ANULAR ORDEN </a></li>
+		  <!-- <li><a href="muestre_orden_nueva.php" class="menu">CONSULTAR ORDENES NUEVA</a></li> -->
+		   <!-- <li><a href="../consultas/pregunte_placa.php" class="menu">CONSULTAR ORDENES POR PLACA </a></li> -->
+		     <!-- <li><a href="pregunte_placa_anular.php" class="menu">ANULAR ORDEN </a></li> -->
 		     <li><a href=../menu_principal.php   class="menu"  >MENU PRINCIPAL</a></li>
 		
 
