@@ -71,17 +71,6 @@ $nombrebase = "ctwtvsxj_honda";
 
 
 
-/*
-$servidor = "localhost";
-
-$usuario = "fpgzxamv_sistema";
-
-$clave  = "A13579b***";
-
-$nombrebase = "fpgzxamv_honda";
-*/
-
-
 $conexion =mysql_connect($servidor,$usuario,$clave);
 
 $la_base =mysql_select_db($nombrebase,$conexion);

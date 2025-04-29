@@ -1,8 +1,0 @@
-[16-Sep-2023 11:49:10 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/fpgzxamv/public_html/sistema_pruebas/valotablapc.php on line 91
-[16-Sep-2023 11:49:10 America/Bogota] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/fpgzxamv/public_html/sistema_pruebas/valotablapc.php:105)' in /home/fpgzxamv/public_html/fpdf/fpdf.php:271
-Stack trace:
-#0 /home/fpgzxamv/public_html/fpdf/fpdf.php(1049): FPDF->Error('Some data has a...')
-#1 /home/fpgzxamv/public_html/fpdf/fpdf.php(999): FPDF->_checkoutput()
-#2 /home/fpgzxamv/public_html/sistema_pruebas/orden/pdf/ordenPdf.php(121): FPDF->Output()
-#3 {main}
-  thrown in /home/fpgzxamv/public_html/fpdf/fpdf.php on line 271

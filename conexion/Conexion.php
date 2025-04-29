@@ -7,7 +7,10 @@ class Conexion{
     // private $db = "motorcycleroom";
     // private $conect;
     
-       
+        private $host = "localhost";
+        private $user = "fpgzxamv_sistema";
+        private $password = "A13579b***";
+        private $db =  "fpgzxamv_honda";
         // private $conect;
 
     public function __construct(){
