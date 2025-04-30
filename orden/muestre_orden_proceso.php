@@ -68,7 +68,7 @@ echo '<table border= "1">';
 	echo '<td><h3>No Orden<h3></td><td><h3>Estado</h3></td><td><h3>Linea</h3></td><td><h3>Fecha</h3></td><td><h3>Placa</h3></td>';
 	echo '<td><h3>Propietario</h3></td>';
 	echo '<td><h3>Tecnico</h3></td>';
-	echo '<td><h3>ELiminar</h3></td>';
+	echo '<td><h3>Eliminar</h3></td>';
     echo '<td><h3>modificar_honda</h3></td>';
 	
 
@@ -167,44 +167,52 @@ function buscar_mecanico($tabla21,$id_mecanico,$id_empresa,$conexion)
 
 	function formuEliminarOrden(idOrden)
 	{
+		const claveEliminacion = prompt("Por favor, ingrese la clave de eliminacion:");
 		// alert(idCliente)
-	
-		const http=new XMLHttpRequest();
-		const url = '../orden/orden_formu_eliminar_honda.php';
-		http.onreadystatechange = function(){
-			if(this.readyState == 4 && this.status ==200){
-				console.log(this.responseText);
-				document.getElementById("div_mostrar_ordenes").innerHTML = this.responseText;
-			}
-		};
-		http.open("POST",url);
-		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		http.send("opcion=buscarClientePorId"
-				+ "&idOrden="+idOrden
-			);
+	//    var claveCorrecta = '99999';
+		if(claveEliminacion =="australia")
+		{
+			const http=new XMLHttpRequest();
+			const url = '../orden/orden_formu_eliminar_honda.php';
+			http.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status ==200){
+					console.log(this.responseText);
+					document.getElementById("div_mostrar_ordenes").innerHTML = this.responseText;
+				}
+			};
+			http.open("POST",url);
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			http.send("opcion=buscarClientePorId"
+					+ "&idOrden="+idOrden
+				);
+		}	
 	}		
 		
 	function realizarEliminacion(idOrden)
 	{
 		// alert(idCliente)
-	 var valida = confirm('esta seguro de eliminar esta orden ');
-	 	if(valida)
-	 	{
+		const claveEliminacionConfirmacion = prompt("Por favor, Digite nuevamente la clave de eliminacion:")
+		;if(claveEliminacionConfirmacion =="australia")
+		{
+				var valida = confirm('esta seguro de eliminar esta orden ');
+				if(valida)
+				{
 
-			const http=new XMLHttpRequest();
-			const url = '../orden/orden_proceder_eliminar_orden.php';
-			http.onreadystatechange = function(){
-				if(this.readyState == 4 && this.status ==200){
-					console.log(this.responseText);
-					document.getElementById("div_mostrar_ordenes").innerHTML = this.responseText;
-					}
-				};
-				http.open("POST",url);
-				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				http.send("opcion=buscarClientePorId"
-				+ "&idOrden="+idOrden
-			);
-		}
+					const http=new XMLHttpRequest();
+					const url = '../orden/orden_proceder_eliminar_orden.php';
+					http.onreadystatechange = function(){
+						if(this.readyState == 4 && this.status ==200){
+							console.log(this.responseText);
+							document.getElementById("div_mostrar_ordenes").innerHTML = this.responseText;
+							}
+						};
+						http.open("POST",url);
+						http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						http.send("opcion=buscarClientePorId"
+						+ "&idOrden="+idOrden
+					);
+				}
+		}		
 	}			
 </script>
 
